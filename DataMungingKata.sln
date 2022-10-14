@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataMungingKata", "DataMungingKata\DataMungingKata.csproj", "{F24F2D26-C11A-4604-A49F-3FF602714CC8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Munger", "Munger\Munger.csproj", "{56E37990-7A2A-46DC-BF14-9D8B59BD247A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MungerTests", "MungerTests\MungerTests.csproj", "{25B542AD-80A4-465E-95BA-5D215B60E94A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +10,13 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F24F2D26-C11A-4604-A49F-3FF602714CC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F24F2D26-C11A-4604-A49F-3FF602714CC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F24F2D26-C11A-4604-A49F-3FF602714CC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F24F2D26-C11A-4604-A49F-3FF602714CC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56E37990-7A2A-46DC-BF14-9D8B59BD247A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56E37990-7A2A-46DC-BF14-9D8B59BD247A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56E37990-7A2A-46DC-BF14-9D8B59BD247A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56E37990-7A2A-46DC-BF14-9D8B59BD247A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25B542AD-80A4-465E-95BA-5D215B60E94A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25B542AD-80A4-465E-95BA-5D215B60E94A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25B542AD-80A4-465E-95BA-5D215B60E94A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25B542AD-80A4-465E-95BA-5D215B60E94A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

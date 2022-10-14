@@ -1,2 +1,12 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+
+using DataMungingKata;
+
+static async Task<int> Main()
+{
+    var reader = new DataReader();
+
+    var x = await reader.GetRelevantWeatherData();
+
+    return 0;
+}
