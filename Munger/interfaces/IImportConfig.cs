@@ -2,7 +2,7 @@ using System.Text.RegularExpressions;
 
 namespace DataMungingKata;
 
-public interface IImportable
+public interface IImportConfig
 {
     Regex RegexExpression { get; }
     int[] FieldIndices { get; }

@@ -8,7 +8,7 @@ public class ResultPresenter
     
     public async Task<string> GetLowestSpreadDay()
     {
-        var resultData = await _dataReader.GetWeatherData();
+        var resultData = await DataReader.GetWeatherData();
 
         var lowestDifferenceEntry = DifferenceCalculator.GetEntryWithMinimalDifference(resultData);
 
@@ -17,7 +17,7 @@ public class ResultPresenter
 
     public async Task<string> GetLowestGoalDifference()
     {
-        var resultData = await _dataReader.GetFootballData();
+        var resultData = await DataReader.GetFootballData();
 
         var lowestDifferenceEntry = DifferenceCalculator.GetEntryWithMinimalDifference(resultData);
 

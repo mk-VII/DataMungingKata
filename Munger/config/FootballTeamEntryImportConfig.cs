@@ -2,7 +2,7 @@ using System.Text.RegularExpressions;
 
 namespace DataMungingKata.config;
 
-public class FootballTeamEntryImportConfig : IImportable
+public class FootballTeamEntryImportConfig : IImportConfig
 {
     public Regex RegexExpression =>
         new("^\\s+\\d+.\\s+(\\w+)\\s+\\d+\\s+\\d+\\s+\\d+\\s+\\d+\\s+(\\d+)\\s+-\\s+(\\d+)+\\s+\\d+$");

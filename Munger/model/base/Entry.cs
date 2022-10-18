@@ -17,4 +17,14 @@ public class Entry<T>
 
         Difference = Max - Min;
     }
+
+    protected static IEnumerable<string> GetValuesForIndices(string dataLine, IEnumerable<int> indices)
+    {
+        var sanitisedValues = dataLine
+            .Split()
+            .Where(ch => !string.IsNullOrEmpty(ch))
+            .ToList();
+
+        return indices.Select(index => sanitisedValues[index]);
+    }
 }

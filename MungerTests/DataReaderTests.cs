@@ -10,16 +10,16 @@ public class DataReaderTests
     [TestMethod]
     public async Task TestGetWeatherData()
     {
-        var data = await _reader.GetWeatherData();
+        var data = await DataReader.GetWeatherData();
 
-        Assert.AreEqual(data.Count(), 30);
+        Assert.AreEqual(30, data.Count());
     }
     
     [TestMethod]
     public async Task TestGetFootballData()
     {
-        var data = await _reader.GetFootballData();
+        var data = await DataReader.GetFootballData();
 
-        Assert.AreEqual(data.Count(), 20);
+        Assert.AreEqual(20, data.Count());
     }
 }
