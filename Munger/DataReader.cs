@@ -1,22 +1,34 @@
 using System.Text.RegularExpressions;
+using DataMungingKata.config;
 
 namespace DataMungingKata;
 
 public class DataReader
 {
-    public async Task<IEnumerable<WeatherData>> GetRelevantWeatherData()
+    public async Task<IEnumerable<WeatherEntry>> GetWeatherData()
     {
-        var lines = (await ReadInAllLines()).ToList();
+        var lines = (await File.ReadAllLinesAsync(
+                @"C:\Users\Mark.Scholefield\Repos\Development Plan\DataMungingKata\Munger\data\weather.dat"))
+            .ToList();
 
         return lines
             .Where(IsValidDataLine)
             .Select(ParseToWeatherData);
     }
 
-    private async Task<IEnumerable<string>> ReadInAllLines()
+    public async Task<IEnumerable<FootballTeamEntry>> GetFootballData()
     {
-        return await File.ReadAllLinesAsync(
-            @"C:\Users\Mark.Scholefield\Repos\Development Plan\DataMungingKata\Munger\data\weather.dat");
+        var importConfig = new FootballTeamEntryImportConfig();
+
+        var lines = (await File.ReadAllLinesAsync(
+                @"C:\Users\Mark.Scholefield\Repos\Development Plan\DataMungingKata\Munger\data\football.dat"))
+            .ToList();
+
+        var entries = lines
+            .Where(line => importConfig.RegexExpression.IsMatch(line))
+            .Select(line => FootballTeamEntry.CreateEntry(line, importConfig.FieldIndices));
+
+        return entries;
     }
 
     private bool IsValidDataLine(string dataLine)
@@ -24,13 +36,13 @@ public class DataReader
         return !string.IsNullOrEmpty(dataLine) && int.TryParse(ReadInNextValue(dataLine), out _);
     }
 
-    private WeatherData ParseToWeatherData(string dataLine)
+    private WeatherEntry ParseToWeatherData(string dataLine)
     {
         var (dayNumber, updatedLine1) = SeparateNextNumericValueFromString(dataLine);
         var (maxTempNumber, updatedLine2) = SeparateNextNumericValueFromString(updatedLine1);
         var (minTempNumber, _) = SeparateNextNumericValueFromString(updatedLine2);
 
-        return new WeatherData(dayNumber, maxTempNumber, minTempNumber);
+        return new WeatherEntry(dayNumber, maxTempNumber, minTempNumber);
     }
 
     private (int, string) SeparateNextNumericValueFromString(string dataLine)
